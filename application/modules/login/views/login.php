@@ -60,6 +60,9 @@
 							Login
 						</button>
 					</div>
+					<div class="container-login100-form-btn">
+						<button type="button" class="login100-form-btn" data-toggle="modal" data-target="#register-modal" >Register</button>
+					</div>
 					</div>
 
 					<!-- <div class="text-center p-t-12">
@@ -72,3 +75,74 @@
 			</div>
 		</div>
 	</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="register-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Registration</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <form action="#" method="post" id="RegisterForm">
+      <div class="modal-body">
+		
+			<div class="form-row">
+				<div class="col-md-6 mb-3">
+				<label for="First_Name">First Name</label>
+				<div class="input-group">
+					<input type="text" name="First_Name" class="form-control form-control-lg registerField" required id="First_Name" placeholder="First Name">
+				</div>
+				</div>
+				<div class="col-md-6 mb-3">
+				<label for="Last_Name">Last Name</label>
+				<div class="input-group">
+					<input type="text" name="Last_Name" class="form-control form-control-lg registerField" required id="Last_Name" placeholder="Last Name">
+				</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-6 mb-3">
+				<label for="Email">Email</label>
+				<div class="input-group">
+					<input type="email" name="Email" class="form-control form-control-lg registerField" required id="Email" placeholder="Email">
+				</div>
+				</div>
+				<div class="col-md-6 mb-3">
+				<label for="Phone">Phone Number</label>
+				<div class="input-group">
+
+					<input type="tel" name="Phone" class="form-control form-control-lg registerField"  required id="Phone" placeholder="Phone">
+				</div>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col-md-6 mb-3">
+				<label for="Username">Username</label>
+				<div class="input-group">
+					<input type="text" name="Username" class="form-control form-control-lg registerField" required id="Username" placeholder="Username">
+				</div>
+				</div>
+				<div class="col-md-6 mb-3">
+				<label for="Password">Password</label>
+				<div class="input-group">
+					<input type="password" name="Password" class="form-control form-control-lg registerField"  required id="Password" placeholder="Password">
+				</div>
+				</div>
+			</div>
+			
+		
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		<div id="submit-edited-homework" class="col-md-6">
+        <button type="submit" class="btn btn-primary">Submit</button>
+		   </div>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>

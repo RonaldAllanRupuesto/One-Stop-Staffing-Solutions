@@ -1,4 +1,5 @@
 
+var base_url = $("input[name='base_url']").val();
 (function ($) {
     "use strict";
 
@@ -51,7 +52,45 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
+
     
     
 
 })(jQuery);
+$(document).on('submit','#RegisterForm',function(e){
+    e.preventDefault();
+    $.ajax({
+        url:`${base_url}login/register`,
+        type: 'POST',
+        data:{
+            First_Name : $('#First_Name').val(),
+            Last_Name : $('#Last_Name').val(),
+            Email : $('#Email').val(),
+            Phone : $('#Phone').val(),
+            Username : $('#Password').val(),
+            Password : $('#Password').val(),
+        },
+        dataType: "json",
+        beforeSend: function() {
+            // to prevent from submitting again
+            $('#submit-edited-homework').html(`<button type="submit" class="btn btn-primary">Processing</button>`);
+        },
+        success:function(response){
+            console.log(response);
+            if(response.status == 'success'){
+                console.log(response);
+                Swal.fire('Success','Registration Successful','success').then(function(){
+                    // location.reload();
+                });
+            }
+            else{
+                $('#submit-edited-homework').html(`<button type="submit" class="btn btn-primary">Submit</button>`);
+                Swal.fire('Error','Something Went Wrong','error');
+            }
+        },
+        error:function(response){
+            $('#submit-edited-homework').html(`<button type="submit" class="btn btn-primary">Submit</button>`);
+            Swal.fire('An error has occured');
+        }
+    });
+});

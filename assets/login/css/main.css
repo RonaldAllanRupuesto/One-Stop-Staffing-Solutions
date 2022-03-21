@@ -92,7 +92,7 @@ textarea {
 }
 
 textarea:focus, input:focus {
-  border-color: transparent !important;
+  /* border-color: transparent !important; */
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
@@ -114,6 +114,23 @@ textarea::-webkit-input-placeholder { color: #999999; }
 textarea:-moz-placeholder { color: #999999; }
 textarea::-moz-placeholder { color: #999999; }
 textarea:-ms-input-placeholder { color: #999999; }
+
+.registerField::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: 15px;
+}
+.registerField::-moz-placeholder { /* Firefox 19+ */
+  font-size: 15px;
+}
+.registerField:-ms-input-placeholder { /* IE 10+ */
+  font-size: 15px;
+}
+.registerField:-moz-placeholder { /* Firefox 18- */
+  font-size: 15px;
+}
+
+.registerField{
+  font-size: 15px;
+}
 
 /*---------------------------------------------*/
 button {

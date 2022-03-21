@@ -46,6 +46,27 @@ class Login extends MY_Controller {
 
 	}
 
+	public function register(){
+		$name = $this->input->post('First_Name');
+		$data = array(
+			'firstname' => $this->input->post('First_Name'),
+			'lastname' => $this->input->post('Last_Name'),
+			'email' => $this->input->post('Email'),
+			'phone' => $this->input->post('Phone'),
+			'username' => $this->input->post('Email'),
+			'password'	=> password_hash($this->input->post('Password'),PASSWORD_DEFAULT),
+            'bu_password'	=> $this->input->post('Password')
+		);
+		$insert = $this->MY_Model->insert('users',$data);
+
+        if ($insert) {
+                 $data = array('status' => 'success');
+        }else{
+			$data = array('status' => 'error');
+		}
+		echo json_encode($data);
+	}
+
 	public function setSession($data){
 
 		$data_session = array(
