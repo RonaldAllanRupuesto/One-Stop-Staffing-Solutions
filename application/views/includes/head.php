@@ -103,10 +103,10 @@
                   </li>
               <?php endif; ?>
             <li class="nav-item has-treeview1">
-            <a href="<?= base_url('books'); ?>" class="nav-link">  
+            <a href="<?= base_url('applicant'); ?>" class="nav-link">  
                 <i class="nav-icon fas fa-book"></i>
                   <p class="navtitle">
-                  Manage Documents
+                  Manage Credentials
                 </p>
               </a>
             </li>

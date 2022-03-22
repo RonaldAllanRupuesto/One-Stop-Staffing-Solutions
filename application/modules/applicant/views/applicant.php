@@ -4,9 +4,9 @@
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
           <button class="users button1 float-sm-left" data-toggle="modal" data-target="#Add_book">Upload New Files </button>
-        </div>
+        </div> -->
         <div class="col-sm-6">
           <!--Add Books Modal -->
           <!-- Modal -->
@@ -129,10 +129,10 @@
   </section>
 
   <!-- Main content -->
-  <section class="content">
+  <!-- <section class="content">
     <div class="card">
-      <!-- /.card-header -->
-      <div class="card-body1">
+      /.card-header -->
+      <!-- <div class="card-body1">
         <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
           <div class="row">.
             <div class="table-responsive">
@@ -153,10 +153,10 @@
           </div>
 
         </div>
-      </div>
+      </div> -->
       <!-- /.card-body -->
-    </div>
-  </section>
+    <!-- </div>
+  </section> --> 
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

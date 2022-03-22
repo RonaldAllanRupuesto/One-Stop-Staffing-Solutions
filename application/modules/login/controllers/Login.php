@@ -31,7 +31,7 @@ class Login extends MY_Controller {
 					if ($result->usertype == 1) {
 						redirect(base_url('usermanagement'));
 					}else {
-						redirect(base_url('books'));
+						redirect(base_url('applicant'));
 					}
 				}else{
 					$data['msg'] = 'Password is incorrect';

@@ -5,8 +5,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Usermanagement extends MY_Controller{
 
     public function index(){
-
-        $this->load_page('usermanagement');
+        $type = $this->session->userdata('usertype');
+        if($type == 1){
+            $this->load_page('usermanagement');
+        }else{
+            $this->load_page('usermanagement');
+            redirect(base_url('applicant'));
+        }
+        
     }
 // Add user
     public function addUser(){
