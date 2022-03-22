@@ -48,21 +48,42 @@ class Login extends MY_Controller {
 
 	public function register(){
 		$name = $this->input->post('First_Name');
-		$data = array(
-			'firstname' => $this->input->post('First_Name'),
-			'lastname' => $this->input->post('Last_Name'),
-			'email' => $this->input->post('Email'),
-			'phone' => $this->input->post('Phone'),
-			'username' => $this->input->post('Email'),
-			'password'	=> password_hash($this->input->post('Password'),PASSWORD_DEFAULT),
-            'bu_password'	=> $this->input->post('Password')
-		);
-		$insert = $this->MY_Model->insert('users',$data);
+
+		$username = $this->input->post('Username');
+		$password = $this->input->post('Password');
+		$parameters['where'] = array('username' => $username);
+		$parameters['select'] = 'username';
+		$username_exist = $this->MY_Model->getRows('users',$parameters);
+
+        $count_username = count($username_exist);
+
+		$data = array();
+		$insert = 0;
+		if ($count_username) {
+			$data['msg'] = 'Username already exists!';
+        }elseif (strlen($username) < 6) {
+			$data['msg'] = 'Username must atleast 6 characters long';
+        }elseif (strlen($_POST['Password']) <10 ) {
+			$data['msg'] = 'Password must atleast 10 characters long';
+        }  else {
+
+			$insData = array(
+				'firstname' => $this->input->post('First_Name'),
+				'lastname' => $this->input->post('Last_Name'),
+				'email' => $this->input->post('Email'),
+				'phone' => $this->input->post('Phone'),
+				'username' => $this->input->post('Username'),
+				'password'	=> password_hash($password,PASSWORD_DEFAULT),
+				'bu_password'	=> $password
+			);
+			$insert = $this->MY_Model->insert('users',$insData);
+		}	
+		
 
         if ($insert) {
-                 $data = array('status' => 'success');
+                 $data['status'] = 'success';
         }else{
-			$data = array('status' => 'error');
+			$data['status'] = 'error';
 		}
 		echo json_encode($data);
 	}
