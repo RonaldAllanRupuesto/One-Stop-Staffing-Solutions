@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 09:46 AM
+-- Generation Time: Mar 23, 2022 at 06:19 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -20,6 +20,43 @@ SET time_zone = "+00:00";
 --
 -- Database: `employeeinservice`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `additional_user_information`
+--
+
+CREATE TABLE `additional_user_information` (
+  `fk_user_id` int(11) NOT NULL,
+  `mobile_number` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `job_discipline` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `additional_user_information`
+--
+
+INSERT INTO `additional_user_information` (`fk_user_id`, `mobile_number`, `address`, `job_discipline`) VALUES
+(19, '09665236944', 'Bay Area, San Francisco, CEBU CITY', 'Certified Occupational Therapy Assistant');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `files`
+--
+
+CREATE TABLE `files` (
+  `file_id` int(255) NOT NULL,
+  `file_type` varchar(255) NOT NULL,
+  `file_path` text NOT NULL,
+  `file_status` int(11) NOT NULL,
+  `note` text NOT NULL,
+  `issue_date` date NOT NULL,
+  `expiration_date` date NOT NULL,
+  `date_added` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -54,11 +91,28 @@ INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `phone`, `user
 (11, 'test2', 'test2', '', '0', 'test2test2test2', '$2y$10$zf2MzHc4.cxfIDgwgmLAD.P2NyufiYGgCiMnlC5X3gJtt1h4BGzzK', 'test123456789', 2, 1),
 (12, 'ronan', '123123', 'test@gmail.com', '1213', 'test@gmail.com', '$2y$10$3LQNqIJxrn2buFNAi5XlL.LTBRROq4NaRJtJDIPh43oddJ87p2/AC', '123123', 2, 1),
 (13, 'ronan', '123123', 'test@gmail.com', '1213', 'test@gmail.com', '$2y$10$2AurOcbaXGR7VTlxcNOoxuyX58l2TjexkVbpF3UFwX8n1QAqwwgOi', '12313', 2, 1),
-(14, 'ronan', '123123', 'test@gmail.com', '1213', 'test@gmail.com', '$2y$10$pjyAd/Tqjz9vLBpXMh7mNuyNH8TfWk.ZUjiVHn5ta83X3FBSwRyTW', '12313', 2, 1);
+(14, 'ronan', '123123', 'test@gmail.com', '1213', 'test@gmail.com', '$2y$10$pjyAd/Tqjz9vLBpXMh7mNuyNH8TfWk.ZUjiVHn5ta83X3FBSwRyTW', '12313', 2, 1),
+(15, 'test23', 'test', 'tes@gmail.com', '12312312', 'tes@gmail.com', '$2y$10$4sOloCwZ2CSKRvQMZk4aP.mfZHYmPAIV27ot0Uqiqikzo8unh5CzC', '123123123123', 2, 3),
+(16, 'test23', 'test', 'tes@gmail.com', '12312312', 'tes@gmail.com', '$2y$10$Q4/kd5nZo9O263XOtY87xu27Pi1qGr.vGCFor/s/WG5gnr7KIW78.', '123123123123', 2, 3),
+(17, 'test23', 'test', 'tes@gmail.com', '12312312', 'tes@gmail.com', '$2y$10$oRqBOXcwlw/.jTBUJhhhdOyl1OhJ22xIlATyGWCto6ff/YXLToVQe', '1231', 2, 3),
+(18, 'test23', 'test', 'tes@gmail.com', '12312312', '131231', '$2y$10$3WAeyPkkBHnK74l/1GZqs.4/ljtQuWF0ZhwJTBbEH3RGFJpsiTJWy', '123112312123', 2, 3),
+(19, 'Test Ronald', 'Test Rupuesto', 'prospteam@gmail.com', '(541) 754-3010', 'proweavertest', '$2y$10$Gw5nTNcDd5MruvPSLrSQLe7aDnBmAQOd1z7U8S7rVIv0xwq/8Lg5q', 'proweavertest', 2, 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `additional_user_information`
+--
+ALTER TABLE `additional_user_information`
+  ADD PRIMARY KEY (`fk_user_id`);
+
+--
+-- Indexes for table `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`file_id`);
 
 --
 -- Indexes for table `users`
@@ -71,10 +125,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `files`
+--
+ALTER TABLE `files`
+  MODIFY `file_id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
