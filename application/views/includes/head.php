@@ -37,9 +37,30 @@
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/adminlte.css'); ?>">
   <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/custom.css'); ?>">
+
+  <?php $route = $this->router->fetch_class();?>
+
+ <?php if($route == 'profile'){ ?>
+  <link rel="stylesheet" href="<?php echo base_url('assets/profile/css/profile.css'); ?>">
+  <?php } ?>
+
+
 </head>
 
 <body class="hold-transition sidebar-mini">
+
+  <!-- LOADER INDICATOR START to use this just show this and hide the wrapper class--> 
+  <div class="loadWrapper" style="display: none;">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <div class="shadow"></div>
+      <span>Loading</span>
+  </div>
+  <!-- LOADER INDICATOR END -->
+
   <!-- Site wrapper -->
   <div class="wrapper">
     <!-- Navbar -->
@@ -67,10 +88,18 @@
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <?php if ($this->session->userdata('usertype') == 1): ?>
           <a href="<?php echo base_url('updateaccount') ?>" class="dropdown-item">
           <i class='fas fa-cog'></i> <span style="margin: 0px 10px;">Update Account</span>
             <!-- <span class="float-right text-muted text-sm">3 mins</span> -->
           </a>
+          <?php endif; ?>
+          <?php if ($this->session->userdata('usertype') == 2): ?>
+          <a href="<?php echo base_url('profile') ?>" class="dropdown-item">
+          <i class="fas fa-user-alt"></i> <span style="margin: 0px 10px;">Profile</span>
+            <!-- <span class="float-right text-muted text-sm">3 mins</span> -->
+          </a>
+          <?php endif; ?>
             <a href="<?php echo base_url('logout') ?>" class="dropdown-item">
             <i class="fas fa-power-off"></i> <span style="margin: 0px 10px;">Logout</span>
             </a>
@@ -102,14 +131,16 @@
                       </a>
                   </li>
               <?php endif; ?>
+              <?php if ($this->session->userdata('usertype') == 2): ?>
             <li class="nav-item has-treeview1">
-            <a href="<?= base_url('applicant'); ?>" class="nav-link">  
+            <a href="<?= base_url('applicant'); ?>" class="nav-link active">  
                 <i class="nav-icon fas fa-book"></i>
                   <p class="navtitle">
                   Manage Credentials
                 </p>
               </a>
             </li>
+            <?php endif; ?>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

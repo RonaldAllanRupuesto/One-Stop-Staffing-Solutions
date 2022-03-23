@@ -6,9 +6,12 @@
     </div>
   </footer>
 
+  <input type="hidden" value="<?php echo base_url(); ?>" name="base_url"/>
+  <input type="hidden" name="route" value="<?php echo $this->router->fetch_class(); ?>">
+  <input type="hidden" name="basemethod" value="<?php echo $this->router->fetch_method(); ?>">
+  <?php $route = $this->router->fetch_class();?>
 
 </div>
-<input type="hidden" value="<?php echo base_url(); ?>" name="base_url"/>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url('assets/plugins/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 <!-- DataTables -->
@@ -37,6 +40,12 @@
 <!--custom js-->
 <script src="<?php echo base_url('assets/dist/js/usermanagement.js'); ?>"></script>
 <script src="<?php echo base_url('assets/dist/js/books.js'); ?>"></script>
+  
+<?php if($route == 'profile'){ ?>
+  <script src="<?php echo base_url('assets/profile/js/profile.js'); ?>"></script>
+<?php } ?>
+
+
 
 </body>
 </html>

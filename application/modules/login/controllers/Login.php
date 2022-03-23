@@ -93,7 +93,8 @@ class Login extends MY_Controller {
 		$data_session = array(
 			'logged_in' => true,
 			'username' => $data->username,
-			'usertype' => $data->usertype
+			'usertype' => $data->usertype,
+			'userId' => $data->user_id
 		);
 
 		$this->session->set_userdata($data_session);
